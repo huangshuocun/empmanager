@@ -1,0 +1,84 @@
+﻿{% load static %}
+<html>
+	<head>
+		<title>update Emp</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="top_content">
+				<div id="header">
+					<div id="rightheader">
+						<p>
+                            登录时间：{{ now }}
+							<br />
+						</p>
+					</div>
+					<div id="topheader">
+						<h1 id="title">
+							<a href="#">员工管理系统</a>
+						</h1>
+					</div>
+					<div id="navigation">
+					</div>
+				</div>
+
+				<div id="content">
+					<p id="whereami">
+					</p>
+					<h1>
+						User Detail:
+					</h1>
+					<table class="table">
+						<tr>
+							<td>
+								姓名
+							</td>
+							<td>
+								电话
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ user.name }}
+							</td>
+							<td>
+								{{ user.phone }}
+							</td>
+						</tr>
+					</table>
+					<br/>
+					<h1>
+						Load Photo:
+					</h1>
+	
+						<form action="userDetail.html" method="post"
+							enctype="multipart/form-data">
+							Upload File Name:
+							<input type="file" name="file1" />
+							<input type="submit" value="confirm" />
+						</form>
+
+					<h1>
+						view photo:
+					</h1>
+					<table>
+								<tr>
+									<td>
+										<img src="/static/upload/boy001.jpg" width="300"
+											height="300" />
+									</td>
+								</tr>
+					</table>
+				</div>
+				<input type="button" onclick="location='{% url 'user:userList' %}?page={{ 1 }}'" value="查看所有用户"/>
+			</div>
+			<div id="footer">
+				<div id="footer_bg">
+					huangsc@163.com
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
